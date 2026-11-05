@@ -1,0 +1,29 @@
+node_modules/
+
+# Local environment variables and credentials
+.env
+.env.*
+!.env.example
+.npmrc
+!.npmrc.example
+secrets/
+credentials/
+*service-account*.json
+*serviceaccount*.json
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Local databases, exports, and backups
+*.sqlite
+*.sqlite3
+*.sqlite-*
+*.db
+*.db-*
+/data/*.sql
+/data/backups/
+
+# Generated logs
+*.log
+npm-debug.log*

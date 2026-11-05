@@ -1,0 +1,24 @@
+{
+  "name": "braganza-dental-clinic",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Backend and API server for the Braganza Dental Clinic management system.",
+  "main": "server/index.js",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node server/index.js",
+    "build": "node --check server/index.js",
+    "set-password": "node scripts/set-password.js",
+    "approve-user": "node scripts/approve-user.js",
+    "test": "node tests/run.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.2.0",
+    "firebase-admin": "^14.5.0",
+    "nodemailer": "^10.3.1"
+  },
+  "license": "UNLICENSED"
+}
