@@ -38,11 +38,12 @@ const dataDir = process.env.DATA_DIR ? path.resolve(ROOT, process.env.DATA_DIR) 
 const databasePath = process.env.SQLITE_PATH
   ? path.resolve(ROOT, process.env.SQLITE_PATH)
   : path.join(dataDir, 'braganza.sqlite');
+const isProduction = (process.env.NODE_ENV || 'production') === 'production';
 
 module.exports = {
   root: ROOT,
   env: process.env.NODE_ENV || 'production',
-  host: process.env.HOST || '127.0.0.1',
+  host: isProduction ? '0.0.0.0' : (process.env.HOST || '127.0.0.1'),
   port: int(process.env.PORT, 4400),
   publicDir: path.join(ROOT, 'public'),
   dataDir: dataDir,

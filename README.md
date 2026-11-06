@@ -32,7 +32,7 @@ On macOS/Linux, use `cp .env.example .env` to copy the environment file. `start.
 
 | Variable | Purpose | Default |
 | --- | --- | --- |
-| `HOST` | Address the HTTP server binds to | `127.0.0.1` |
+| `HOST` | Address the HTTP server binds to (production always binds to `0.0.0.0`) | `127.0.0.1` locally |
 | `PORT` | HTTP port; Render supplies this automatically | `4400` |
 | `DATA_DIR` | Local data and backup directory | `data` |
 | `SQLITE_PATH` | SQLite file path; takes precedence over `DATA_DIR` | `data/braganza-clinic.sqlite` |
@@ -135,8 +135,10 @@ The included `render.yaml` defines a Node web service and a 1 GB persistent disk
 1. Push this project to a Git provider supported by Render.
 2. In Render, choose **New → Blueprint** and select the repository.
 3. Configure the Firebase, SMTP, and/or Twilio environment variables described above in the
-   Blueprint prompts (or later in the Render dashboard), and set a strong unique
-   `ADMIN_PASSWORD`. Keep the generated `OTP_SECRET` stable across deployments.
+   Blueprint prompts (or later in the Render dashboard). Set `ADMIN_PASSWORD` to the password
+   you want to use for the first administrator; it must be at least 12 characters. Keep this
+   value unchanged to retain the same configured password, and keep the generated `OTP_SECRET`
+   stable across deployments.
 4. Apply the Blueprint. Wait for deployment to pass its `/api/health` check, then open the Render URL and
    sign in with the configured administrator credentials.
 5. To carry over clinic records from an existing installation, download its authenticated
