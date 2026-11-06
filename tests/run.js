@@ -544,7 +544,7 @@ async function main() {
     !/Send SMS code/.test(html) && /otpCodeStep/.test(html));
   check('account creation offers only Assistant and Dentist roles',
     /ACCOUNT_CREATION_ROLES=\[\{v:'Dentist',l:'Dentist'\},\{v:'Dental Assistant',l:'Assistant'\}\]/.test(html) &&
-    /selectF\('role',ACCOUNT_CREATION_ROLES,'Dental Assistant'\)/.test(html));
+    /selectF\('role',ACCOUNT_CREATION_ROLES,'Dental Assistant','v','l'\)/.test(html));
   const traversal = await fetch(ctx.base + '/../package.json');
   check('path traversal is blocked', traversal.status === 404 || traversal.status === 403, 'status ' + traversal.status);
 

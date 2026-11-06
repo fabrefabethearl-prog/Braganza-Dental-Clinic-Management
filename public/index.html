@@ -2014,7 +2014,7 @@ function accountForm(){
     fld('Username',inputF('username','','text','required minlength="3" maxlength="40" autocomplete="username"'))+
     fld('Email',inputF('email','','email','required maxlength="254" autocomplete="email"'))+
     fld('Mobile number (optional)',inputF('phone','','tel','placeholder="+14155552671" autocomplete="tel"'))+
-    fld('Role',selectF('role',ACCOUNT_CREATION_ROLES,'Dental Assistant'))+
+    fld('Role',selectF('role',ACCOUNT_CREATION_ROLES,'Dental Assistant','v','l'))+
     fld('Temporary password',inputF('password','','password','required minlength="8" maxlength="128" autocomplete="new-password"'),true)+
   '</div><p class="hint">The account can sign in immediately. Share its temporary password securely and ask the user to change it.</p>';
   openModal({title:'Create Account',sub:'Create a clinic user account',body:body,
